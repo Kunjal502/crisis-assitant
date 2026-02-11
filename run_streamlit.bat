@@ -1,0 +1,3 @@
+@echo off
+echo Starting Financial Crisis Support Assistant...
+streamlit run streamlit_app.py

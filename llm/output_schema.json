@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Financial Crisis Agent Output",
+  "type": "object",
+  "required": ["internal_assessment", "next_action"],
+  "properties": {
+    "internal_assessment": {
+      "type": "object",
+      "required": [
+        "financial_stress_level",
+        "user_emotional_state",
+        "confidence_in_previous_step",
+        "needs_reevaluation",
+        "needs_timer",
+        "needs_emergency_support"
+      ],
+      "properties": {
+        "financial_stress_level": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "user_emotional_state": {
+          "type": "string",
+          "enum": ["calm", "anxious", "distressed", "overwhelmed"]
+        },
+        "confidence_in_previous_step": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "needs_reevaluation": {
+          "type": "boolean"
+        },
+        "needs_timer": {
+          "type": "boolean"
+        },
+        "needs_emergency_support": {
+          "type": "boolean"
+        }
+      }
+    },
+    "next_action": {
+      "type": "object",
+      "required": [
+        "instruction_to_user",
+        "step_goal",
+        "ask_followup"
+      ],
+      "properties": {
+        "instruction_to_user": {
+          "type": "string"
+        },
+        "step_goal": {
+          "type": "string"
+        },
+        "ask_followup": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
